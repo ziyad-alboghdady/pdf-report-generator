@@ -63,6 +63,7 @@ left empty by a crashed seed.
 
 | Method | Route | Answers with |
 |---|---|---|
+| `GET` | `/` | an index of every route, so the app explains itself in a browser |
 | `GET` | `/health` | `{ "status": "ok" }` |
 | `POST` | `/reports` | `201` + `{ id, createdAt, file }` — or `200` with the existing report if one was already made today |
 | `GET` | `/reports` | every report, newest first *(extra, not required)* |

@@ -80,6 +80,26 @@ Directory.CreateDirectory(Paths.ReportsDir);
 app.Logger.LogInformation("Database: {Database}", Paths.Database);
 app.Logger.LogInformation("Reports folder: {ReportsDir}", Paths.ReportsDir);
 
+// ---- GET / ----------------------------------------------------------------
+// An index, so that opening the app in a browser says what it can do instead
+// of answering 404. Costs nothing and saves the next person a trip to the
+// README to find out the route names.
+app.MapGet("/", () => Results.Ok(new
+{
+    service = "PDF report generator - FlyRank BE-08",
+    dataset = "60 books scraped from books.toscrape.com in BE-05",
+    endpoints = new[]
+    {
+        "GET  /health                - liveness",
+        "POST /reports               - generate today's report (201), or return today's existing one (200)",
+        "POST /reports {force:true}  - generate a fresh one regardless",
+        "GET  /reports               - every report generated so far",
+        "GET  /reports/{id}          - one report's record",
+        "GET  /reports/{id}/file     - download the PDF"
+    },
+    seedFirst = "dotnet run -- seed"
+}));
+
 app.MapGet("/health", () => Results.Ok(new { status = "ok" }));
 
 // ---- POST /reports --------------------------------------------------------
