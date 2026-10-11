@@ -1,0 +1,28 @@
+# ---- Generated artifacts -------------------------------------------------
+# A PDF is a product, not source. The seed script and the template are the
+# recipe; anyone who clones this repo regenerates both in one command.
+**/reports/
+**/report.db
+**/report.db-shm
+**/report.db-wal
+
+# ---- Build output --------------------------------------------------------
+bin/
+obj/
+*.user
+
+# ---- Playwright ----------------------------------------------------------
+# The browser download lives in the user profile, not here, but the generated
+# install script does land in bin/ and is covered above.
+.playwright/
+
+# ---- Editors / OS --------------------------------------------------------
+.vs/
+.vscode/
+.idea/
+Thumbs.db
+.DS_Store
+
+# Logs written by verify-reports.ps1 while it runs the API
+**/api.out.log
+**/api.err.log
