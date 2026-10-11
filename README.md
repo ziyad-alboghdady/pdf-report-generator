@@ -222,7 +222,7 @@ every checkpoint in the brief, and shuts the API down again:
 ```powershell
 .\verify-reports.ps1
 # ...
-# 25 passed, 0 failed
+# 29 passed, 0 failed
 ```
 
 It covers: health; `201` + id + link + `Location` + exactly one new file +
